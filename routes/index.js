@@ -1,27 +1,28 @@
-const { requestLocalData } = require("../src/local-data");
 const express = require("express");
 const router = express.Router();
-const path = require('path');
 
 /* GET home page. */
 router.get("/", (req, res) => {
-  res.render("welcome", { option: "Express" });
+  res.render("./pages/welcome.ejs", { option: "Juan"});
 });
 router.get("/play", async (req, res) => {
   try {
-    res.render("index", { option: "Express" });
+    res.render("./pages/index", { option: "Jonathan" });
   } catch (error) {
     console.log(error);
   }
 });
-router.get("/character", (req, res) => {
+
+router.get("/Help", (req,res)=>{
   try {
-    res.json("../public/character/characters.json");
+    res.send({
+      message: "request received, building view..."
+    })
   } catch (error) {
-    console.log(error);
+    
   }
-  console.log();
 });
+
 
 
 router.post("/send", (request, res) => {
@@ -44,5 +45,8 @@ router.post("/send", (request, res) => {
     });
   }
 });
-
+// to add new data
+router.get("/add",(req,res)=>{
+  res.render("form");
+});
 module.exports = router;

@@ -5,9 +5,11 @@ var logger = require("morgan");
 // import main routes
 var indexRouter = require("./routes/index");
 // import data routes
-const {CharactersAPI}=require('./src/Characters/index');
-// import the env variables 
-const {Config}= require('./src/config/index');
+const { CharactersAPI } = require("./src/Characters/index");
+// import users routes
+const {UsersAPI}= require('./src/users/index');
+// import the env variables
+const { Config } = require("./src/config/index");
 // import Database Mongo
 var app = express();
 
@@ -20,11 +22,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "publicTwo")));
 
 app.use("/", indexRouter);
 // module
 // DataAPI(app);
 CharactersAPI(app);
+UsersAPI(app);
 
 // catch 404 and forward to error handler
 // error handler

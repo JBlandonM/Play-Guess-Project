@@ -6,7 +6,7 @@ const fetchData = async () => {
   try {
     var res = await fetch("/char");
     var charData = await res.json();
-    // console.log(res);
+    console.log(charData);
     showRandom(charData);
   } catch (error) {
     console.log(error);
@@ -16,7 +16,7 @@ const fetchData = async () => {
 // and for each click in some option.
 var showRandom = async (charData) => {
   try {
-    var number = Math.floor(Math.random() * 9);
+    var number = Math.floor(Math.random() * charData.length);
     let imgToInsert = await charData[number].imageUrl;
     let img = document.querySelector(".char");
     img.setAttribute("src", imgToInsert);
@@ -30,7 +30,7 @@ var showRandom = async (charData) => {
   var rightOpt = number;
   options.forEach((option) => {
     option.innerHTML = charData[rightOpt].name;
-    rightOpt = Math.floor(Math.random() * 9);
+    rightOpt = Math.floor(Math.random() * charData.length);
   });
 };
 
@@ -46,28 +46,28 @@ buttonOne.addEventListener("click", async () => {
   requestInputs(buttonOne);
   setTimeout(() => {
     fetchData();
-  }, 1000);
+  }, 600);
 });
 buttonTwo.addEventListener("click", async () => {
   checkSelected(buttonTwo);
   requestInputs(buttonTwo);
   setTimeout(() => {
     fetchData();
-  }, 1000);
+  }, 600);
 });
 buttonThree.addEventListener("click", async () => {
   checkSelected(buttonThree);
   requestInputs(buttonThree);
   setTimeout(() => {
     fetchData();
-  }, 1000);
+  },600);
 });
 buttonFour.addEventListener("click", async () => {
   checkSelected(buttonFour);
   requestInputs(buttonFour);
   setTimeout(() => {
     fetchData();
-  }, 1000);
+  }, 600);
 });
 var score = 0;
 var fails = 3;

@@ -1,0 +1,452 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+  margin: 0px;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  margin: 0px 0px;
+  padding: 0;
+}
+
+#cont1 {
+  width: 100%;
+  height: 100%;
+  background-color: #fffffa;
+  /* deep container with  */
+}
+
+#mainPage {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #44a1a0;
+  color: #fffffa;
+  inline-size: 90%;
+  margin-inline: 5%;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: rgb(196, 196, 196) 0px 1px 0px;
+}
+
+.container {
+  /* this contains two header, the profile pic and the nav bar */
+  background-color: #44a1a0;
+  inline-size: 88%;
+  block-size: 100%;
+}
+
+#mainPage #header-container {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#jabm-works {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+#resume {
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+
+#profile-pic {
+  border-radius: 50px;
+}
+
+#mainPage #nav-bar-container {
+  /* vertical direction with space among every bottom */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-block: 5px;
+  inline-size: 100%;
+  block-size: 200px;
+}
+
+#mainPage #nav-bar-container .button-link {
+  height: 50px;
+  width: 70%;
+  text-align: center;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #faf1e2;
+}
+
+.button-link p {
+  color: #bbd1d3;
+  text-align: left;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#mainPage #nav-bar-container .button-link:hover {
+  cursor: pointer;
+  color: grey;
+  /* box-shadow: 0 5px 4px rgba(26, 25, 25, 0.548) ; */
+}
+
+/* Second Page */
+#cont2 {
+  background-color: rgb(233, 236, 236);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#secondPage {
+  height: 100%;
+  width: 90%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-inline: 5%;
+}
+
+#Develops {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: black;
+}
+
+#project-cont {
+  height: 100%;
+  inline-size: 100%;
+  /* background-color: #21ebe8f5; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+#project-one {
+  color: #44a1a0;
+
+  background-color: white;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  border: solid gainsboro 1.5px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#project-two {
+  color: #44a1a0;
+  background-color: white;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  border: solid gainsboro 1.5px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#project-three {
+  background-color: white;
+  color: #44a1a0;
+
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  border: solid gainsboro 1.5px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Third Page */
+#thirdPage {
+  background-color: rgb(233, 236, 236);
+  /* height: 100vh; */
+}
+
+#thirdPage h2 {
+  text-align: center;
+  color: black;
+  margin: 0 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#thirdPage #container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  justify-content: space-evenly;
+  /* row-gap: 20px; */
+}
+
+#thirdPage #container p {
+  width: 88%;
+  margin: 3px 3px;
+}
+
+#box-footer-skills {
+  color: #44a1a0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  block-size: 80%;
+  justify-content: space-evenly;
+  display: flex;
+  margin: 5% 5%;
+  border-radius: 10px;
+  box-shadow: rgb(196, 196, 196) 0px 1px 0px;
+}
+
+.skill {
+  margin: 15px;
+}
+
+.six {
+  border-radius: 16px;
+}
+
+/* #thirdPage .container img:hover {
+    border-radius: 16px;
+    box-shadow: 5px 5px 5px grey;
+} */
+
+/* footer */
+footer {
+  width: 100%;
+  background-color: #fffffa;
+  /* background-color: #3E6259; */
+}
+
+#box-footer {
+  /* padding: 5px 5px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  block-size: 80%;
+  background-color: #0d5c63;
+  justify-content: space-evenly;
+  display: flex;
+  margin: 5% 5%;
+  border-radius: 10px;
+  box-shadow: rgb(196, 196, 196) 0px 1px 0px;
+}
+
+footer span {
+  /* padding: 10px 2px; */
+  margin-top: 10px;
+  margin-bottom: 14px;
+  color: #fffffa;
+  text-align: center;
+  place-content: center;
+  font-size: 12px;
+}
+
+#social-media {
+  margin-top: 16px;
+  width: 260px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#social-media a img {
+  /* background-color: #3E6259; */
+  border-radius: 50%;
+}
+
+#social-media a img:hover {
+  transition: all 0.1ms ease-out;
+  width: 35px;
+  height: 35px;
+  box-shadow: 0 5px 5px black;
+}
+
+#test-image-border {
+  inline-size: 100px;
+  block-size: 100px;
+  border: 10px solid black;
+  border-radius: 20%;
+  border-image-width: 10px;
+  border-image-source: linear-gradient(to bottom right, red, blue, white);
+  border-image-slice: 25%;
+}
+/* contact page */
+/* section */
+#card {
+  width: 100vw;
+  height: 99vh;
+  background-color: #bbd1d3;
+  padding: 2px;
+}
+/* form card container responsive */
+#contact {
+  width: 94%;
+  margin: auto;
+  padding: 1px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px grey;
+  margin: 50px auto;
+}
+#contact #header {
+  inline-size: 94%;
+  margin: 0 auto;
+  padding-left: 3px;
+}
+form {
+  height: 100%;
+}
+/* inputs styles */
+form .contact {
+  border: 1px solid rgba(133, 133, 133, 0.2);
+  border-radius: 3px;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+/* button fom */
+form button {
+  height: 100px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: rgba(128, 128, 128, 0.5);
+  border: hidden;
+  box-shadow: 1px 1px 2px grey;
+  margin-top: 16px;
+}
+#contact #form-container {
+  height: 300px;
+  inline-size: 93%;
+  margin: 0 auto;
+}
+
+/* i added styles to the contact area in mobile devices */
+#contact #form-container form {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: ; */
+}
+
+@media (max-width: 1366px) and (min-width: 400px) {
+  /* medias to the main page */
+  #profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  #mainPage {
+    width: 500px;
+  }
+
+  #cont1 {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  #box-footer {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    margin: 3% 3%;
+  }
+
+  #box-footer span {
+    margin: 0 0;
+    padding: 33px 8px;
+  }
+
+  #social-media {
+    margin: 0 0;
+  }
+
+  /* to the develops page */
+  #secondPage {
+    width: 500px;
+    background-color: rgb(233, 236, 236);
+  }
+}
+/* responsive contact page */
+@media (max-width: 1366px) and (min-width: 600px) {
+  #card {
+    padding: 5px;
+  }
+  #contact {
+    width: 600px;
+  }
+  @media (min-width: 500px) {
+    #secondPage {
+      width: 100%;
+      /* height: 100%; */
+    }
+
+    #project-cont {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 100%;
+    }
+
+    #project-one {
+      width: 300px;
+      /* background-colr: #0D5C63; */
+      height: 510px;
+    }
+
+    #project-two {
+      width: 300px;
+      height: 510px;
+    }
+
+    #project-three {
+      width: 300px;
+      height: 510px;
+    }
+
+    #cont2 {
+      /* height: 100%; */
+      width: 100%;
+    }
+  }
+
+  /* COLOR PALETTE
+ #FFFFFA
+ #0D5C63
+ #44A1A0
+ #44A1A0
+ #247B7B*/
+  /* En estas lineas estoy aprendiendo a usar las media querys para hacer responsive la pagina*/
+}

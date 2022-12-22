@@ -7,19 +7,22 @@
 </head>
 
 <body>
-  <h2>Sign Up</h2>
+  <div class="main-container">
+    <div id="sub-container">
+      <h2 id="title">SIGN UP</h2>
+      <form id="register-box" action="register" method="post">
+        <input type="text" name="name" id="name-box" placeholder="Username">
+        <input type="email" name="mail" id="mail-box" placeholder="Mail">
+        <input type="password" name="pass" id="pass-box" placeholder="Password">
+        <input type="password" name="conf-pass" id="pass-box" placeholder="Confirm Password">
 
-  <form id="register-box" action="register" method="post">
-    <input type="text" name="name" id="name-box" placeholder="Username">
-    <input type="email" name="mail" id="mail-box" placeholder="Mail">
-    <input type="password" name="pass" id="pass-box" placeholder="Password">
-    <input type="password" name="conf-pass" id="pass-box" placeholder="Confirm Password">
-
-    <input id="btn-ok" type="submit" value="Ok">
-  </form>
-  <a href="/play">
-    <button id="return-btn">RETURN</button>
-  </a>
+        <input id="btn-ok" type="submit" value="Ok">
+      </form>
+      <a href="/play">
+        <button id="return-btn">RETURN</button>
+      </a>
+    </div>
+  </div>
 </body>
 
 </html>

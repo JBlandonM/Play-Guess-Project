@@ -19,22 +19,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-#nav-res {
-  height: 70px;
-  width: 80%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-bottom: 20px;
-  background-color: rgb(181, 226, 226);
-  border-radius: 5%;
-  font-size: large;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-nav > a{
-  color: darkcyan;
-  text-decoration: none;
-}
 #card {
   inline-size: 80%;
   display: flex;

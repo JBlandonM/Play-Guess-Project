@@ -4,17 +4,23 @@ body {
   display: flex;
   justify-content: center;
 }
-.one {
-  /* background-color: antiquewhite; */
+.main-container {
   inline-size: 95vw;
   block-size: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
-.two {
+#nav-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+.main-container .two {
   inline-size: 100%;
-  block-size: 80%;
-  background-color: aquamarine;
+  height: 50%;
+  background-color: cadetblue;
   display: flex;
   flex-direction: column;
   border-radius: 7px;
@@ -22,48 +28,55 @@ body {
 .welcome {
   inline-size: 100%;
   block-size: 65%;
-  background-color:  beige;
+  background-color: beige;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   text-align: center;
 }
-.welcome h1{
-font-size: 45px;
-margin: 40% 5px;
+.welcome h1 {
+  font-size: 45px;
 }
 .buttons {
   inline-size: 100%;
   block-size: 35%;
+  display: flex;
+  justify-content: center;
 }
-#btn-play{
+#footer-container {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#btn-play {
   background-color: royalblue;
+  padding: 10px;
   border: hidden;
+  text-decoration: none;
   border-radius: 5px;
-  width: 40%;
-  height: 50%;
   color: white;
-  text-shadow: 1px 1px 1px rgba(128, 128, 128,0.5);
-  font-size: 24px;
-  margin: 13% 30%;
-  
+  text-shadow: 1px 1px 1px rgba(128, 128, 128, 0.5);
+  font-size: 50px;
+  margin:auto 0;
 }
-#btn-play:hover{
-  background-color: rgba(65, 105, 225,0.6);
-  color: rgba(255, 255, 255,0.6);
+
+#btn-play:hover {
+  background-color: rgba(65, 105, 225, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* for large screens */
-@media (min-width:600px) and (max-width:1366px){
-  .one {
+@media (min-width: 600px) and (max-width: 1366px) {
+  .main-container {
     /* background-color: antiquewhite; */
     inline-size: 70vw;
     block-size: 100vh;
     display: flex;
     align-items: center;
   }
-  .two {
+  .main-container .two {
     inline-size: 100%;
-    block-size: 50%;
+    block-size: 80%;
     background-color: aquamarine;
     flex-direction: row;
   }

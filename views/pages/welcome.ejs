@@ -4,22 +4,42 @@
 <head>
   <%- include("../partials/head.ejs");%>
     <link rel="stylesheet" href="/stylesheets/welcome.css">
+    <style>
+      #nav-res {
+        height: 70px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: auto 0;
+        background-color: rgb(181, 226, 226);
+        border-radius: 5%;
+        font-size: large;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      nav>a {
+        color: darkcyan;
+        text-decoration: none;
+      }
+    </style>
 </head>
 
 <body>
 
-  <div class="one">
-    <div class="two">
-      <div class="welcome">
-        <h1>Welcome Player</h1>
-      </div>
-      <div class="buttons">
-        <a href="/play">
-          <button id="btn-play">Play</button>
-        </a>
-      </div>
-
+  <div class="main-container">
+    <div id="nav-container">
+    <%- include("../partials/nav-bar.ejs");%>
     </div>
+      <div class="two">
+        <div class="welcome">
+          <h1>Welcome Player</h1>
+        </div>
+        <div class="buttons">
+          <a id="btn-play" href="/play">Play</a>
+        </div>
+      </div>
+      <%- include("../partials/footer.ejs");%>
   </div>
 </body>
 

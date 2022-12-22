@@ -47,6 +47,6 @@ router.post("/send", (request, res) => {
 });
 // to add new data
 router.get("/add",(req,res)=>{
-  res.render("form");
+  res.render("./pages/form");
 });
 module.exports = router;

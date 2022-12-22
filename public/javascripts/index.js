@@ -60,7 +60,7 @@ buttonThree.addEventListener("click", async () => {
   requestInputs(buttonThree);
   setTimeout(() => {
     fetchData();
-  },600);
+  }, 600);
 });
 buttonFour.addEventListener("click", async () => {
   checkSelected(buttonFour);
@@ -126,3 +126,4 @@ const requestInputs = async (btnClicked) => {
     console.log(error);
   }
 };
+

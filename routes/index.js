@@ -3,11 +3,11 @@ const router = express.Router();
 
 /* GET home page. */
 router.get("/", (req, res) => {
-  res.render("./pages/welcome.ejs", { option: "Juan"});
+  res.render("./pages/welcome.ejs", { title: "Welcome|PlayGuess"});
 });
 router.get("/play", async (req, res) => {
   try {
-    res.render("./pages/index", { option: "Jonathan" });
+    res.render("./pages/index", { title: "PlayGuess" });
   } catch (error) {
     console.log(error);
   }

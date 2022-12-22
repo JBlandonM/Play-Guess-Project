@@ -21,10 +21,12 @@ module.exports.CharAPI = {
     try {
       let newData = req.body;
       const result = await CharServices.addChar(newData);
-      res.send({
-        message: "Received OK",
-        body: newData,
-      });
+      debug(result);
+      res.redirect("back");
+      // res.send({
+      //   message: "Received OK",
+      //   body: newData,
+      // });
     } catch (error) {
       console.log(error);
       res.send("Error receiving the data");

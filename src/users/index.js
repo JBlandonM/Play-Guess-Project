@@ -6,7 +6,7 @@ const router = express.Router();
 module.exports.UsersAPI = (app)=>{
   router.get("/signUp", (req,res)=>{
     try {
-      res.render("./pages/signUp.ejs")
+      res.render("./pages/signUp.ejs", {title: "SignUp"})
     } catch (error) {
       
     }
@@ -27,7 +27,7 @@ module.exports.UsersAPI = (app)=>{
 
   router.get("/SignIn", (req,res)=>{
     try {
-      res.render("./pages/signIn");
+      res.render("./pages/signIn", {title: "SignIn"});
       // res.send({
       //   message: "request received, building view sign..."
       // })

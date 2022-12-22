@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
-    "build": "build app.js"
+    "dev": "set DEBUG=app* & nodemon app.js",
+    "start": "node app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

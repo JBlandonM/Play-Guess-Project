@@ -20,7 +20,7 @@ body {
   align-items: center;
 }
 #card {
-  inline-size: 80%;
+  inline-size: 95%;
   display: flex;
   flex-direction: column;
   justify-content: center;

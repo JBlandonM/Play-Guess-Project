@@ -1,0 +1,44 @@
+<style>
+  #header {
+    background-color: cornflowerblue;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  #end-body {
+    inline-size: 100%;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    justify-content: space-between;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  #end-body>a {
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 45%;
+    height: 60px;
+    text-emphasis: none;
+    border-radius: 5px;
+    justify-content: center;
+  }
+
+  #points {
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+</style>
+<h1 id="header">Match Ended</h1>
+<div id="points">Corrects : <span><%= pts %></span> / 15
+</div>
+<div id="end-body">
+  <a href="/play">Try Again</a>
+  <a href="/">Back</a>
+</div>

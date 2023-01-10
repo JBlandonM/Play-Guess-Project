@@ -1,129 +1,127 @@
-document.body.onload = async () => {
-  fetchData();
-};
-// getting the "dataBase= localFile" with the characters info
-const fetchData = async () => {
-  try {
-    var res = await fetch("/char");
-    var charData = await res.json();
-    console.log(charData);
-    showRandom(charData);
-  } catch (error) {
-    console.log(error);
-  }
-};
-// from the local data, show a new image and options, on load,
-// and for each click in some option.
-var showRandom = async (charData) => {
-  try {
-    var number = Math.floor(Math.random() * charData.length);
-    let imgToInsert = await charData[number].imageUrl;
-    let img = document.querySelector(".char");
-    img.setAttribute("src", imgToInsert);
-    let imgAlt = await charData[number].name;
-    img.setAttribute("alt", imgAlt);
-  } catch (error) {
-    console.log(error);
-  }
-  // insert 4 options, one right.
-  let options = document.querySelectorAll(".option");
-  var rightOpt = number;
-  options.forEach((option) => {
-    option.innerHTML = charData[rightOpt].name;
-    rightOpt = Math.floor(Math.random() * charData.length);
+// state variables
+let currentChar = 0;
+let currentOptions = [];
+let imgHistory = [];
+let optionHistory = [];
+let points = 0;
+
+const fetchData = async (category) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const res = await fetch(`/char/${category}`);
+      resolve(await res.json());
+    } catch (error) {
+      reject(error);
+    }
   });
-};
 
-// stored 4 possible options from the DOM
-var buttonOne = document.querySelector(".one");
-var buttonTwo = document.querySelector(".two");
-var buttonThree = document.querySelector(".three");
-var buttonFour = document.querySelector(".four");
-
-// calling aboves functions for each possible option
-buttonOne.addEventListener("click", async () => {
-  checkSelected(buttonOne);
-  requestInputs(buttonOne);
-  setTimeout(() => {
-    fetchData();
-  }, 600);
-});
-buttonTwo.addEventListener("click", async () => {
-  checkSelected(buttonTwo);
-  requestInputs(buttonTwo);
-  setTimeout(() => {
-    fetchData();
-  }, 600);
-});
-buttonThree.addEventListener("click", async () => {
-  checkSelected(buttonThree);
-  requestInputs(buttonThree);
-  setTimeout(() => {
-    fetchData();
-  }, 600);
-});
-buttonFour.addEventListener("click", async () => {
-  checkSelected(buttonFour);
-  requestInputs(buttonFour);
-  setTimeout(() => {
-    fetchData();
-  }, 600);
-});
-var score = 0;
-var fails = 3;
-const checkSelected = (btnClicked) => {
-  var imgChar = document.querySelector(".char");
-  let displayed = imgChar.getAttribute("alt"); // store image displayed attribute "alt"(the string with the correct option)
-  let buttonText = btnClicked.getInnerHTML(); // also the button clicked string
-  let card = document.querySelector("#card");
-  let scoreTxt = document.querySelector("#score");
-  let failsTxt = document.querySelector("#attempts");
-  if (displayed === buttonText) {
-    btnClicked.classList.add("right-op");
-    card.classList.add("card-color-right");
-    score += 1;
-    scoreTxt.innerHTML = score;
-    console.log(score);
-    // score = Number(scoreTxt);
-    // scoreTxt.innerHTML = score;
-  } else {
-    btnClicked.classList.add("wrong-op");
-    card.classList.add("card-color-wrong");
-    fails -= 1;
-    failsTxt.innerHTML = fails;
+const optionToShow = (characters) => {
+  while (characters && currentOptions.length < 4) {
+    let randomNum = Math.floor(Math.random() * characters.length);
+    if (!optionHistory.includes(characters[randomNum])) {
+      currentOptions.push(randomNum);
+      optionHistory.push(characters[randomNum]);
+    }
   }
-  setTimeout(() => {
-    btnClicked.classList.remove("right-op");
-    btnClicked.classList.remove("wrong-op");
-    card.classList.remove("card-color-wrong");
-    card.classList.remove("card-color-right");
-  }, 1000);
+  // console.log(`current options: ${currentOptions}`);
 };
 
-// for each possible option, on its "click" run this
-const requestInputs = async (btnClicked) => {
+const imgToShow = (currentOptions, characters) => {
   try {
-    var imgChar = document.querySelector(".char").getAttribute("alt"); // store image displayed attribute "alt"(the string with the correct option)
-    var buttonText = btnClicked.getInnerHTML(); // also the button clicked string
-    var options = {
-      // setting customs option to the request
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // data to send "onclick"
-        charDisplayed: imgChar,
-        optionSelected: buttonText,
-      }),
-    };
-    // using "fetch API" to send a request to backend
-    let result = await fetch("/send", options);
-    // receiving a response from backend
-    result = await result.json();
-    console.log(result);
+    let randomNum = Math.floor(Math.random() * currentOptions.length);
+    if (!imgHistory.includes(characters[currentOptions[randomNum]])) {
+      imgHistory.push(characters[currentOptions[randomNum]]);
+      // console.log("History:", imgHistory);
+      // console.log("current:", characters[currentOptions[randomNum]]);
+      return currentOptions[randomNum];
+    }
   } catch (error) {
     console.log(error);
   }
 };
 
+const endMatch = async (imgHistory, pointsCounter) => {
+  if (imgHistory.length >= 15) {
+    console.log("Match should end");
+    option = {
+      Headers: {
+        "content-type": "text/html",
+      },
+    };
+    let response = await (await fetch(`match/point/${points}`, option)).text();
+    // console.log(response);
+    let father = document.querySelector("#card");
+    father.innerHTML = response;
+  } else {
+    console.log("continue");
+  }
+};
+const update = async () => {
+  var imgElement = document.querySelector(".char");
+  let buttonsElements = document.querySelectorAll(".option");
+  let pointsCounter = document.querySelector("#score");
+  // console.log("------------------------------");
+  // console.log("Characters length:", characters.length);
+  await optionToShow(characters);
+
+  let position = await imgToShow(currentOptions, characters);
+
+  let charToShow = characters[position];
+  // console.log(charToShow);
+
+  imgElement.setAttribute("src", charToShow.imageUrl);
+  imgElement.setAttribute("alt", charToShow.name);
+  pointsCounter.textContent = points;
+  buttonsElements[0].textContent = characters[currentOptions[0]].name;
+  buttonsElements[1].textContent = characters[currentOptions[1]].name;
+  buttonsElements[2].textContent = characters[currentOptions[2]].name;
+  buttonsElements[3].textContent = characters[currentOptions[3]].name;
+  characters.splice(position, 1);
+  // console.log("left:", characters);
+
+  currentOptions = [];
+  optionHistory = [];
+  endMatch(imgHistory);
+};
+
+const checkAnswers = (imgShown, buttonClicked) => {
+  if (imgShown === buttonClicked) {
+    points += 1;
+    console.log(points);
+  }
+};
+
+const categoryButtons = document.querySelectorAll(".charCatgry");
+const subContainer = document.querySelector("#sub-container");
+var characters = 0;
+categoryButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    const response = await fetch(`/jonathan`);
+    const view = await response.text();
+    characters = await fetchData(button.textContent);
+
+    while (subContainer.firstChild) {
+      subContainer.removeChild(subContainer.firstChild);
+    }
+
+    subContainer.innerHTML = view;
+
+    const buttonOptions = document.querySelectorAll(".option");
+
+    update();
+
+    buttonOptions.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.disabled = true;
+        checkAnswers(
+          document.querySelector(".char").getAttribute("alt"),
+          button.textContent
+        );
+        update();
+        setTimeout(() => {
+          button.disabled = false;
+        }, 600);
+      });
+    });
+  });
+});

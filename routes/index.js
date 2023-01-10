@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 router.get("/play", async (req, res) => {
   try {
     // res.render("./pages/category");
-    res.render("./pages/category", { title: "Play" });
+    res.render("./pages/index", { title: "Play" });
   } catch (error) {
     console.log(error);
   }

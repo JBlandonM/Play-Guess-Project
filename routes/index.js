@@ -1,52 +1,41 @@
 const express = require("express");
+const { CURSOR_FLAGS } = require("mongodb");
 const router = express.Router();
 
 /* GET home page. */
 router.get("/", (req, res) => {
-  res.render("./pages/welcome.ejs", { title: "Welcome|PlayGuess"});
+  res.render("./pages/welcome.ejs", { title: "Welcome|PlayGuess" });
 });
 router.get("/play", async (req, res) => {
   try {
-    res.render("./pages/index", { title: "PlayGuess" });
+    // res.render("./pages/category");
+    res.render("./pages/category", { title: "Play" });
   } catch (error) {
     console.log(error);
   }
 });
 
-router.get("/Help", (req,res)=>{
+router.get("/:category", (req, res) => {
+  try {
+    console.log(req.params.category);
+    res.render("./partials/matchStart");
+  } catch (error) {
+    console.log(error);
+    res.send(error)
+  }
+});
+
+// to add new data
+router.get("/add", (req, res) => {
+  res.render("./pages/form", { title: "AddChar" });
+});
+
+// send help page view
+router.get("/Help", (req, res) => {
   try {
     res.send({
-      message: "request received, building view..."
-    })
-  } catch (error) {
-    
-  }
-});
-
-
-
-router.post("/send", (request, res) => {
-  try {
-    let answers = request.body;
-    let correct = answers.charDisplayed === answers.optionSelected;
-    res.status(200).json({
-      message: "answers received successfully",
-      body: {
-        charDisplayed: answers.charDisplayed,
-        optionSelected: answers.optionSelected,
-        correct: correct,
-      },
+      message: "request received, building view...",
     });
-  } catch (error) {
-    console.log(error);
-    res.json({
-      message: "Answers not received",
-      body: {},
-    });
-  }
-});
-// to add new data
-router.get("/add",(req,res)=>{
-  res.render("./pages/form");
+  } catch (error) {}
 });
 module.exports = router;

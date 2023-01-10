@@ -32,4 +32,14 @@ module.exports.CharAPI = {
       res.send("Error receiving the data");
     }
   },
+  getCharCollection: async (request, response) => {
+    try {
+      const { category } = request.params;
+      let data = await CharServices.getCollection(category);
+      response.send(data)
+    } catch (error) {
+      debug(error);
+      response(error)
+    }
+  },
 };

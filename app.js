@@ -2,14 +2,14 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-// import main routes
+// import main routes 
 var indexRouter = require("./routes/index");
 // import data routes
 const { CharactersAPI } = require("./src/characters/index");
 // import users routes
-const {UsersAPI}= require('./src/users/index');
+const { UsersAPI } = require("./src/users/index");
 // import in match routes
-const {MatchAPI} = require('./src/match');
+const { MatchAPI } = require("./src/match");
 // import the env variables
 const { Config } = require("./src/config/index");
 // import Database Mongo

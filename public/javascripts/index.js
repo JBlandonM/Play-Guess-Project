@@ -86,17 +86,17 @@ const update = async () => {
 
 const checkAnswers = (buttonClicked) => {
   const imageShown = document.querySelector(".char").getAttribute("alt");
-  let card = document.querySelector("#card")
+  let card = document.querySelector("#card");
   if (imageShown === buttonClicked.textContent) {
-    card.classList.add("card-color-right")
+    card.classList.add("card-color-right");
     points += 1;
     console.log(points);
-  }else{
-    card.classList.add("card-color-wrong")
+  } else {
+    card.classList.add("card-color-wrong");
   }
   setTimeout(() => {
-    card.classList.remove("card-color-right")
-    card.classList.remove("card-color-wrong")
+    card.classList.remove("card-color-right");
+    card.classList.remove("card-color-wrong");
   }, 700);
 };
 

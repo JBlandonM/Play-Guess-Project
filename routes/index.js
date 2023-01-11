@@ -21,7 +21,7 @@ router.get("/:category", (req, res) => {
     res.render("./partials/matchStart");
   } catch (error) {
     console.log(error);
-    res.send(error)
+    res.send(error);
   }
 });
 

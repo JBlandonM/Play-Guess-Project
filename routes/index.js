@@ -15,16 +15,6 @@ router.get("/play", async (req, res) => {
   }
 });
 
-router.get("/:category", (req, res) => {
-  try {
-    console.log(req.params.category);
-    res.render("./partials/matchStart");
-  } catch (error) {
-    console.log(error);
-    res.send(error);
-  }
-});
-
 // to add new data
 router.get("/add", (req, res) => {
   res.render("./pages/form", { title: "AddChar" });

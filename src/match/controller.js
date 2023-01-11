@@ -6,7 +6,7 @@ const checkSelected = async (request, res) => {
       request.body;
     let correct = charDisplayed === optionSelected;
     let matched = scores.length === correctAns + wrongAnswers;
-    
+
     console.log("Matched:", matched);
     res.status(200).json({
       message: "answers received successfully",
@@ -25,12 +25,21 @@ const checkSelected = async (request, res) => {
     });
   }
 };
+const startView = (req, res) => {
+  try {
+    console.log(req.params.category);
+    res.render("./partials/matchStart");
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+};
 
 const finalView = (req, res) => {
   try {
     pts = req.params.pts;
     console.log(pts);
-    res.render("./partials/matchEnd.ejs", {pts: `${pts}`});
+    res.render("./partials/matchEnd.ejs", { pts: `${pts}` });
   } catch (error) {
     debug("MatchPoint:", error);
   }
@@ -39,4 +48,5 @@ const finalView = (req, res) => {
 module.exports.matchController = {
   checkSelected,
   finalView,
+  startView,
 };

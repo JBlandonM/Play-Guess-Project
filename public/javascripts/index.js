@@ -40,7 +40,7 @@ const imgToShow = (currentOptions, characters) => {
   }
 };
 
-const endMatch = async (imgHistory, pointsCounter) => {
+const endMatch = async (imgHistory) => {
   if (imgHistory.length >= 15) {
     console.log("Match should end");
     option = {
@@ -84,11 +84,20 @@ const update = async () => {
   endMatch(imgHistory);
 };
 
-const checkAnswers = (imgShown, buttonClicked) => {
-  if (imgShown === buttonClicked) {
+const checkAnswers = (buttonClicked) => {
+  const imageShown = document.querySelector(".char").getAttribute("alt");
+  let card = document.querySelector("#card")
+  if (imageShown === buttonClicked.textContent) {
+    card.classList.add("card-color-right")
     points += 1;
     console.log(points);
+  }else{
+    card.classList.add("card-color-wrong")
   }
+  setTimeout(() => {
+    card.classList.remove("card-color-right")
+    card.classList.remove("card-color-wrong")
+  }, 700);
 };
 
 const categoryButtons = document.querySelectorAll(".charCatgry");
@@ -96,7 +105,7 @@ const subContainer = document.querySelector("#sub-container");
 var characters = 0;
 categoryButtons.forEach((button) => {
   button.addEventListener("click", async () => {
-    const response = await fetch(`/jonathan`);
+    const response = await fetch("/match/startView");
     const view = await response.text();
     characters = await fetchData(button.textContent);
 
@@ -113,10 +122,7 @@ categoryButtons.forEach((button) => {
     buttonOptions.forEach((button) => {
       button.addEventListener("click", () => {
         button.disabled = true;
-        checkAnswers(
-          document.querySelector(".char").getAttribute("alt"),
-          button.textContent
-        );
+        checkAnswers(button);
         update();
         setTimeout(() => {
           button.disabled = false;

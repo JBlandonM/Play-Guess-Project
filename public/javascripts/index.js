@@ -101,7 +101,7 @@ const checkAnswers = (buttonClicked) => {
 };
 
 const categoryButtons = document.querySelectorAll(".charCatgry");
-const subContainer = document.querySelector("#sub-container");
+const subContainer = document.querySelector("#card");
 var characters = 0;
 categoryButtons.forEach((button) => {
   button.addEventListener("click", async () => {
@@ -123,8 +123,8 @@ categoryButtons.forEach((button) => {
       button.addEventListener("click", () => {
         button.disabled = true;
         checkAnswers(button);
-        update();
         setTimeout(() => {
+          update();
           button.disabled = false;
         }, 600);
       });

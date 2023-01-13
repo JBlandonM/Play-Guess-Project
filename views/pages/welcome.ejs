@@ -4,7 +4,7 @@
 <head>
   <%- include("../partials/head.ejs");%>
     <link rel="stylesheet" href="/stylesheets/welcome.css">
-    <style>
+    <!-- <style>
       #nav-res {
         height: 70px;
         width: 100%;
@@ -22,24 +22,25 @@
         color: darkcyan;
         text-decoration: none;
       }
-    </style>
+    </style> -->
 </head>
 
 <body>
 
   <div class="main-container">
     <div id="nav-container">
-    <!-- <%- include("../partials/nav-bar.ejs");%> -->
+      <!-- <%- include("../partials/nav-bar.ejs");%> -->
     </div>
-      <div class="two">
-        <div class="welcome">
-          <h1>Welcome Player</h1>
-        </div>
-        <div class="buttons">
-          <a id="btn-play" href="/play">Play</a>
-        </div>
+    <div class="two">
+      <div class="welcome">
+        <h1>Welcome 2 PlayGuess</h1>
+        <h2>Remember and Play with your favorite cartoons!</h2>
       </div>
-      <%- include("../partials/footer.ejs");%>
+      <div class="buttons">
+        <a id="btn-play" href="/play">Play</a>
+      </div>
+    </div>
+    <%- include("../partials/footer.ejs");%>
   </div>
 </body>
 

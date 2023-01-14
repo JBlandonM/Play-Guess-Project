@@ -41,7 +41,7 @@ const imgToShow = (currentOptions, characters) => {
 };
 
 const endMatch = async (imgHistory) => {
-  if (imgHistory.length >= 3) {
+  if (imgHistory.length >= 15) {
     console.log("Match should end");
     option = {
       Headers: {
@@ -54,6 +54,7 @@ const endMatch = async (imgHistory) => {
     let father = document.querySelector("#card");
     father.innerHTML = response;
     loading("none", "visible");
+    history.pushState(null, "", "game/score");
   } else {
     console.log("continue");
   }
@@ -120,7 +121,6 @@ categoryButtons.forEach((button) => {
     while (subContainer.firstChild) {
       subContainer.removeChild(subContainer.firstChild);
     }
-
     subContainer.innerHTML = view;
 
     const buttonOptions = document.querySelectorAll(".option");

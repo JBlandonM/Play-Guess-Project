@@ -41,17 +41,19 @@ const imgToShow = (currentOptions, characters) => {
 };
 
 const endMatch = async (imgHistory) => {
-  if (imgHistory.length >= 15) {
+  if (imgHistory.length >= 3) {
     console.log("Match should end");
     option = {
       Headers: {
         "content-type": "text/html",
       },
     };
+    loading("block", "hidden");
     let response = await (await fetch(`match/point/${points}`, option)).text();
     // console.log(response);
     let father = document.querySelector("#card");
     father.innerHTML = response;
+    loading("none", "visible");
   } else {
     console.log("continue");
   }

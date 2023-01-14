@@ -3,10 +3,18 @@ const { CURSOR_FLAGS } = require("mongodb");
 const router = express.Router();
 
 /* GET home page. */
+// router.get("/",(req,res)=>{
+//   try {
+//     res.redirect("/game")
+//   } catch (error) {
+//     console.log(error);
+//   }
+// })
 router.get("/", (req, res) => {
   res.render("./pages/welcome.ejs", { title: "Welcome|PlayGuess" });
 });
-router.get("/play", async (req, res) => {
+
+router.get("/game", async (req, res) => {
   try {
     // res.render("./pages/category");
     res.render("./pages/index", { title: "Play" });
@@ -14,11 +22,15 @@ router.get("/play", async (req, res) => {
     console.log(error);
   }
 });
-
-// to add new data
-router.get("/add", (req, res) => {
-  res.render("./pages/form", { title: "AddChar" });
+router.get("/game/*", async (req, res) => {
+  try {
+    res.redirect("/game")
+  } catch (error) {
+    console.log(error);
+  }
 });
+
+
 
 // send help page view
 router.get("/Help", (req, res) => {
@@ -28,4 +40,9 @@ router.get("/Help", (req, res) => {
     });
   } catch (error) {}
 });
+
+// to add new data
+// router.get("", (req, res) => {
+//   res.render("./pages/form", { title: "AddChar" });
+// });
 module.exports = router;

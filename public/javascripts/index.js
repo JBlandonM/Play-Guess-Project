@@ -100,15 +100,21 @@ const checkAnswers = (buttonClicked) => {
   }, 700);
 };
 
+const loading = (display, display0) => {
+  document.querySelector("#card").style.visibility = display0;
+  document.querySelector("#loader").style.display = display;
+};
+
 const categoryButtons = document.querySelectorAll(".charCatgry");
 const subContainer = document.querySelector("#card");
 var characters = 0;
 categoryButtons.forEach((button) => {
   button.addEventListener("click", async () => {
+    loading("block", "hidden");
     const response = await fetch("/match/startView");
     const view = await response.text();
     characters = await fetchData(button.textContent);
-
+    loading("none", "visible");
     while (subContainer.firstChild) {
       subContainer.removeChild(subContainer.firstChild);
     }

@@ -46,7 +46,7 @@ const finalView = (req, res) => {
 };
 
 module.exports.matchController = {
-  checkSelected,
+  // checkSelected,
   finalView,
   startView,
 };

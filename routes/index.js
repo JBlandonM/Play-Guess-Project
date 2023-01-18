@@ -1,19 +1,11 @@
 const express = require("express");
-const { CURSOR_FLAGS } = require("mongodb");
 const router = express.Router();
-
-/* GET home page. */
-// router.get("/",(req,res)=>{
-//   try {
-//     res.redirect("/game")
-//   } catch (error) {
-//     console.log(error);
-//   }
-// })
+// home
 router.get("/", (req, res) => {
   res.render("./pages/welcome.ejs", { title: "Welcome|PlayGuess" });
 });
 
+// category view
 router.get("/game", async (req, res) => {
   try {
     // res.render("./pages/category");
@@ -22,15 +14,14 @@ router.get("/game", async (req, res) => {
     console.log(error);
   }
 });
+
 router.get("/game/*", async (req, res) => {
   try {
-    res.redirect("/game")
+    res.redirect("/game");
   } catch (error) {
     console.log(error);
   }
 });
-
-
 
 // send help page view
 router.get("/Help", (req, res) => {

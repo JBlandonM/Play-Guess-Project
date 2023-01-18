@@ -5,7 +5,7 @@ const router = express.Router();
 
 module.exports.CharactersAPI = (app) => {
   router.get("/", CharAPI.getCharacters);
-  router.post("/addOne", CharAPI.addCharacters)
-  router.get("/:category",CharAPI.getCharCollection )
+  router.post("/addOne", CharAPI.addCharacters);
+  router.get("/:category", CharAPI.getCharCollection);
   app.use("/char", router);
 };

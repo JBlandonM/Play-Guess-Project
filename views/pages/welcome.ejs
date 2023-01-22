@@ -1,9 +1,3 @@
-<script text="javascript">
-  window.onload = () => {
-    document.querySelector("#loader").style.display = "none"
-    document.querySelector(".two").style.visibility = "visible"
-  }
-</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,11 +28,13 @@
 <body>
 
   <div class="main-container">
-    <div style="display: block;" id="loader"></div>
+    <div id="loader-box">
+      <div id="loader"></div>
+    </div>
     <div id="nav-container">
       <!-- <%- include("../partials/nav-bar.ejs");%> -->
     </div>
-    <div style="visibility: hidden;" class="two">
+    <div class="two">
       <div class="welcome">
         <h1>Welcome 2 PlayGuess</h1>
         <h2>Remember and Play with your favorite cartoons!</h2>
@@ -49,6 +45,12 @@
     </div>
     <%- include("../partials/footer.ejs");%>
   </div>
+  <script>
+    window.onload = () => {
+      document.querySelector("#loader-box").style.display = "none"
+      document.querySelector(".two").style.visibility = "visible"
+    }
+  </script>
 </body>
 
 </html>

@@ -4,6 +4,11 @@ let currentOptions = [];
 let imgHistory = [];
 let optionHistory = [];
 let points = 0;
+let test = "";
+
+window.addEventListener("beforeunload", (e) => {
+  e.returnValue = "";
+});
 
 // to get characters data from mongo db, specified by category
 const fetchData = async (category) =>

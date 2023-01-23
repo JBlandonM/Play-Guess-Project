@@ -150,11 +150,16 @@ categoryButtons.forEach((button) => {
     // for each characters displayed and option selected, calls the update function, disables buttons by a second, and calls checkAnswers function
     buttonOptions.forEach((button) => {
       button.addEventListener("click", () => {
-        button.disabled = true;
+        // button.disabled = true;
+        buttonOptions.forEach((button) => {
+          button.disabled = true;
+        });
         checkAnswers(button);
         setTimeout(() => {
           update();
-          button.disabled = false;
+          buttonOptions.forEach((button) => {
+            button.disabled = false;
+          });
         }, 600);
       });
     });

@@ -108,27 +108,13 @@ body {
 }
 
 /* for large screens */
-@media (min-width: 600px) and (max-width: 1366px) {
+@media (min-width: 500px) {
   .main-container {
-    inline-size: 650px;
+    inline-size: 100vw;
     block-size: 100vh;
     display: flex;
-    align-items: center;
   }
   .main-container .two {
-    inline-size: 100%;
-    block-size: 80%;
-    flex-direction: row;
-  }
-  .welcome {
-    inline-size: 65%;
-    block-size: 100%;
-  }
-  .welcome h1 {
-    margin-block: 45%;
-  }
-  .buttons {
-    inline-size: 35%;
-    block-size: 100%;
+    inline-size: 500px;
   }
 }

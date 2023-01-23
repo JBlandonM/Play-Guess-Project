@@ -27,6 +27,7 @@ body {
   justify-content: center;
   align-items: center;
   /* box-shadow: rgb(196, 196, 196) 0px 1px 0px; */
+  transition: all 90ms linear;
 }
 #options-container {
   background-color: rgb(181, 226, 226);
@@ -70,7 +71,6 @@ body {
   font-size: 16px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.678);
-  transition: all 90ms linear;
 }
 .charCatgry {
   background-color: whitesmoke;
@@ -104,25 +104,25 @@ body {
   box-shadow: 0px 0px 28px 7px rgba(255, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 28px 7px rgba(255, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 28px 7px rgba(255, 0, 0, 0.75);
-  transition: all 50ms linear;
+  transition: all 500ms linear;
   animation-name: testAni;
   animation-duration: 400ms;
 }
 @keyframes testAni {
   0% {
-    transform: rotate(-2deg);
+    transform: rotate(-1deg);
   }
   25% {
-    transform: rotate(1deg);
+    transform: rotate(2deg);
   }
   50% {
-    transform: rotate(0deg);
+    transform: rotate(-2deg);
   }
   75% {
-    transform: rotate(1deg);
+    transform: rotate(2deg);
   }
   100% {
-    transform: rotate(1deg);
+    transform: rotate(-2deg);
   }
 }
 .card-color-right {
@@ -154,8 +154,6 @@ body {
   left: 45%;
   right: 45%;
   animation-duration: 5s;
-  /* animation-name: spin; */
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
   animation: spin 1200ms infinite;
 }
 @keyframes spin {
@@ -167,9 +165,9 @@ body {
     transform: rotate(360deg);
   }
 }
-@media (min-width: 650px) and (max-width: 1366px) {
+@media (min-width: 500px) {
   #sub-container {
-    inline-size: 650px;
+    inline-size: 500px;
   }
   /* body{
     font-size: 12px;

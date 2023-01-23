@@ -6,10 +6,6 @@ let optionHistory = [];
 let points = 0;
 let test = "";
 
-window.addEventListener("beforeunload", (e) => {
-  e.returnValue = "";
-});
-
 // to get characters data from mongo db, specified by category
 const fetchData = async (category) =>
   new Promise(async (resolve, reject) => {
@@ -64,6 +60,9 @@ const endMatch = async (imgHistory) => {
     father.innerHTML = response;
     loading("none", "visible");
     history.pushState(null, "", "game/score");
+    window.onbeforeunload = () => {
+      return none;
+    };
   } else {
     console.log("continue");
   }
@@ -144,7 +143,9 @@ categoryButtons.forEach((button) => {
     subContainer.innerHTML = view;
 
     const buttonOptions = document.querySelectorAll(".option");
-
+    window.onbeforeunload = (e) => {
+      return "";
+    };
     update();
     // for each characters displayed and option selected, calls the update function, disables buttons by a second, and calls checkAnswers function
     buttonOptions.forEach((button) => {

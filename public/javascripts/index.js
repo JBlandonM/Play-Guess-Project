@@ -1,10 +1,14 @@
+import { loading, setFadeOut } from "/javascripts/test-module.js";
+window.onload = async () => {
+  loading("#loader-box", "none", "#card", "flex");
+};
+setFadeOut()
 // state variables
 let currentChar = 0;
 let currentOptions = [];
 let imgHistory = [];
 let optionHistory = [];
 let points = 0;
-let test = "";
 
 // to get characters data from mongo db, specified by category
 const fetchData = async (category) =>
@@ -48,18 +52,24 @@ const imgToShow = (currentOptions, characters) => {
 const endMatch = async (imgHistory) => {
   if (imgHistory.length >= 15) {
     console.log("Match should end");
-    option = {
+    let option = {
       Headers: {
         "content-type": "text/html",
       },
     };
-    loading("block", "hidden");
+    loading("#loader-box", "fixed", "#card", "none");
     let response = await (await fetch(`match/point/${points}`, option)).text();
     // console.log(response);
     let father = document.querySelector("#card");
     father.innerHTML = response;
-    loading("none", "visible");
-    history.pushState(null, "", "game/score");
+    setFadeOut()
+    loading("#loader-box", "none", "#card", "flex");
+    let obj = {
+      test: "ok",
+    };
+    history.replaceState(obj, "", "game/score");
+    console.log(history.state);
+
     window.onbeforeunload = () => {
       return none;
     };
@@ -70,7 +80,7 @@ const endMatch = async (imgHistory) => {
 
 // this is the main unit of the game, this uses each above unit to handle the match flow
 const update = async () => {
-  // selects from dom the img element to render a character, also the buttons, and a "score"
+  // selects from dom the img element to render a character, also the buttons, and a "score" element
   var imgElement = document.querySelector(".char");
   let buttonsElements = document.querySelectorAll(".option");
   let pointsCounter = document.querySelector("#score");
@@ -117,11 +127,11 @@ const checkAnswers = (buttonClicked) => {
   }, 700);
 };
 
-// "loading" unit activates and disables a page loader element
-const loading = (display, display0) => {
-  document.querySelector("#card").style.visibility = display0;
-  document.querySelector("#loader").style.display = display;
-};
+// // "loading" unit activates and disables a page loader element
+// const loading = (display, display0) => {
+//   document.querySelector("#card").style.visibility = display0;
+//   document.querySelector("#loader").style.display = display;
+// };
 
 // from main index view selects the category buttons and a container element
 const categoryButtons = document.querySelectorAll(".charCatgry");
@@ -132,11 +142,12 @@ const subContainer = document.querySelector("#card");
 var characters = 0;
 categoryButtons.forEach((button) => {
   button.addEventListener("click", async () => {
-    loading("block", "hidden");
+    loading("#loader-box", "grid", "#card", "none");
     const response = await fetch("/match/startView");
     const view = await response.text();
     characters = await fetchData(button.textContent);
-    loading("none", "visible");
+    setFadeOut();
+    loading("#loader-box", "none", "#card", "flex");
     while (subContainer.firstChild) {
       subContainer.removeChild(subContainer.firstChild);
     }

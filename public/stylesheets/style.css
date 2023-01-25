@@ -28,6 +28,7 @@ body {
   align-items: center;
   /* box-shadow: rgb(196, 196, 196) 0px 1px 0px; */
   transition: all 90ms linear;
+  /* animation: fadeOut 700ms; */
 }
 #options-container {
   background-color: rgb(181, 226, 226);
@@ -105,8 +106,7 @@ body {
   -webkit-box-shadow: 0px 0px 28px 7px rgba(255, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 28px 7px rgba(255, 0, 0, 0.75);
   transition: all 500ms linear;
-  animation-name: testAni;
-  animation-duration: 400ms;
+  animation: testAni 400ms;
 }
 @keyframes testAni {
   0% {
@@ -132,7 +132,14 @@ body {
   transition: all 50ms linear;
   transform: translateY(-10px);
 }
-
+#footer-container {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
 .wrong-op {
   color: rgba(255, 0, 0, 0.7);
   box-shadow: 0px 0px 5px 1px rgba(255, 0, 0, 0.7);
@@ -143,16 +150,22 @@ body {
   color: rgb(0, 128, 0, 0.7);
   transition: all 100ms linear;
 }
+#loader-box {
+  position: fixed;
+  background-color: inherit;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  align-items: center;
+  justify-items: center;
+}
 #loader {
-  display: block;
-  position: absolute;
   width: 50px;
   height: 50px;
   border: 5px solid white;
   border-top: 5px solid red;
   border-radius: 50%;
-  left: 45%;
-  right: 45%;
   animation-duration: 5s;
   animation: spin 1200ms infinite;
 }
@@ -165,6 +178,16 @@ body {
     transform: rotate(360deg);
   }
 }
+@keyframes fadeOut {
+  from {
+    /* filter: blur(1px); */
+    filter: opacity(0);
+  }
+  to {
+    /* filter: blur(0); */
+    filter: opacity(1);
+  }
+}
 @media (min-width: 500px) {
   #sub-container {
     inline-size: 500px;
@@ -172,4 +195,7 @@ body {
   /* body{
     font-size: 12px;
   } */
+}
+.new-card {
+  animation: fadeOut 700ms;
 }

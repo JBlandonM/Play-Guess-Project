@@ -10,16 +10,20 @@
 <body>
 
   <div class="main-container">
-    <div style="display: none;" id="loader"></div>
+    <div id="loader-box">
+      <div id="loader"></div>
+    </div>
     <div id="sub-container">
       <div id="card">
         <%- include("../partials/category.ejs");%>
       </div>
-      <%- include("../partials/footer.ejs");%>
     </div>
+    <%- include("../partials/footer.ejs");%>
+
   </div>
 
-  <script src="/javascripts/index.js"></script>
+  <script type="module" src="/javascripts/index.js"></script>
+  <script type="module" src="/javascripts/test-module.js"></script>
 </body>
 
 </html>

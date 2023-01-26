@@ -1,6 +1,6 @@
 @import url("./match-end.css");
 body {
-  background-color: black;
+  background-color: rgb(33 33 33);
   margin: 0 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -59,7 +59,9 @@ body {
   grid-template-columns: 100%;
   inline-size: 100%;
   block-size: 130px;
-  background-color: rgba(0, 0, 255, 0.3);
+  /* background-color: rgba(0, 0, 255, 0.3); */
+  background-color: rgba(0, 0, 0, 0.384);
+
   align-items: center;
 }
 .buttons-container {
@@ -75,7 +77,6 @@ body {
   color: rgba(0, 0, 0, 0.678);
 }
 .charCatgry {
-  background-color: whitesmoke;
   border: none;
   margin: auto 0;
   width: 100%;

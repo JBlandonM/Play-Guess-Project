@@ -23,6 +23,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeOut 700ms;
+}
+@keyframes fadeOut {
+  from {
+    /* filter: blur(1px); */
+    filter: opacity(0);
+  }
+  to {
+    /* filter: blur(0); */
+    filter: opacity(1);
+  }
 }
 .welcome {
   background-image: url("../images/welcome-img.jpg");

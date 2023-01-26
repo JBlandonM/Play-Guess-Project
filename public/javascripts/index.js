@@ -2,7 +2,7 @@ import { loading, setFadeOut } from "/javascripts/test-module.js";
 window.onload = async () => {
   loading("#loader-box", "none", "#card", "flex");
 };
-setFadeOut()
+setFadeOut();
 // state variables
 let currentChar = 0;
 let currentOptions = [];
@@ -62,7 +62,7 @@ const endMatch = async (imgHistory) => {
     // console.log(response);
     let father = document.querySelector("#card");
     father.innerHTML = response;
-    setFadeOut()
+    setFadeOut();
     loading("#loader-box", "none", "#card", "flex");
     let obj = {
       test: "ok",
@@ -126,12 +126,6 @@ const checkAnswers = (buttonClicked) => {
     card.classList.remove("card-color-wrong");
   }, 700);
 };
-
-// // "loading" unit activates and disables a page loader element
-// const loading = (display, display0) => {
-//   document.querySelector("#card").style.visibility = display0;
-//   document.querySelector("#loader").style.display = display;
-// };
 
 // from main index view selects the category buttons and a container element
 const categoryButtons = document.querySelectorAll(".charCatgry");
